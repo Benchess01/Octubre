@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(circle at 20% 20%, #f7d9d9 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #ead2c0 0%, transparent 35%),
+        #efe2d2;
+}
+
+/* Fondo */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.18)
+        );
+
+    pointer-events: none;
+}
+
+/* Contenedor */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+}
+
+/* Carta */
+
+.card {
+    position: relative;
+
+    width: min(850px, 92vw);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: white;
+
+    box-shadow:
+        0 25px 70px rgba(80, 45, 30, 0.28),
+        0 5px 20px rgba(80, 45, 30, 0.15);
+
+    animation: appear 1.2s ease forwards;
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+        inset 0 0 40px rgba(80, 40, 20, 0.12);
+}
+
+.card img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+/* Botón música */
+
+.music-button {
+    margin-top: 28px;
+
+    border: none;
+
+    padding: 13px 24px;
+
+    border-radius: 50px;
+
+    background: rgba(75, 39, 45, 0.92);
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(70, 35, 40, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.music-button:hover {
+    transform: translateY(-2px);
+
+    background: #633943;
+
+    box-shadow:
+        0 12px 30px rgba(70, 35, 40, 0.3);
+}
+
+.music-button:active {
+    transform: scale(0.97);
+}
+
+/* Texto */
+
+.hint {
+    margin-top: 12px;
+
+    color: #684b4b;
+
+    font-size: 13px;
+
+    opacity: 0.75;
+}
+
+/* Animación entrada */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .card {
+        width: 96vw;
+    }
+
+    .music-button {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+}
